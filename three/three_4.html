@@ -29,7 +29,7 @@
       document.body.appendChild(renderer.domElement);
       renderer.setClearColorHex(0xEEEEEE, 1.0);
       renderer.clear();
-      var fov = 45; // camera field-of-view in degrees
+      var fov = 55; // camera field-of-view in degrees
       var width = renderer.domElement.width;
       var height = renderer.domElement.height;
       var aspect = width / height; // view aspect ratio
@@ -39,8 +39,8 @@
       camera.position.z = 300;
       var scene = new THREE.Scene();
       var cube = new THREE.Mesh(
-        new THREE.CubeGeometry(50,50,50),
-        new THREE.MeshBasicMaterial({color: 0x000000, opacity: 1})
+        new THREE.CubeGeometry(75,75,75),
+        new THREE.MeshBasicMaterial({color: 0x0000ff, opacity: 1})
       );
       scene.add(cube);
 
@@ -48,9 +48,9 @@
       light.position.set( 170, 330, -160 );
       scene.add(light);
       var litCube = new THREE.Mesh(
-        new THREE.CubeGeometry(50, 50, 50),
-        new THREE.MeshLambertMaterial({color: 0xffffff}));
-      litCube.position.y = 50;
+        new THREE.CubeGeometry(75, 75, 75),
+        new THREE.MeshLambertMaterial({color: 0x0000ff}));
+      litCube.position.y = 100;
       scene.add(litCube);
 
 

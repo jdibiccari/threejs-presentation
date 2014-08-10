@@ -67,7 +67,7 @@
       scene.add(light);
       var litCube = new THREE.Mesh(
         new THREE.CubeGeometry(50, 50, 50),
-        new THREE.MeshLambertMaterial({color: 0xffffff}));
+        new THREE.MeshLambertMaterial({color: 0x0000ff}));
       litCube.position.y = 50;
       litCube.castShadow = true;
       scene.add(litCube);
@@ -94,14 +94,25 @@
           sy += dy;
         }
       }
+      // function animate(t) {
+      //   if (!paused) {
+      //     last = t;
+      //     litCube.position.y = 60-Math.sin(t/900)*25;
+      //     litCube.position.x = Math.cos(t/600)*85;
+      //     litCube.position.z = Math.sin(t/600)*85;
+      //     litCube.rotation.x = t/500;
+      //     litCube.rotation.y = t/800;
+      //     renderer.clear();
+      //     camera.lookAt(scene.position);
+      //     renderer.render(scene, camera);
+      //   }
+      //   window.requestAnimationFrame(animate, renderer.domElement);
+      // };
       function animate(t) {
         if (!paused) {
           last = t;
-          litCube.position.y = 60-Math.sin(t/900)*25;
-          litCube.position.x = Math.cos(t/600)*85;
-          litCube.position.z = Math.sin(t/600)*85;
-          litCube.rotation.x = t/500;
-          litCube.rotation.y = t/800;
+          camera.position.set(
+            Math.sin(t/1000)*300, 150, Math.cos(t/1000)*300);
           renderer.clear();
           camera.lookAt(scene.position);
           renderer.render(scene, camera);
