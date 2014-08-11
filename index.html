@@ -95,16 +95,16 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
    // Scene
    var scene = new THREE.Scene(); 
 
+   // Camera
+   camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
+
+   scene.add(camera);
+
    // Renderer
    renderer = new THREE.WebGLRenderer();
    renderer.setSize( window.innerWidth, window.innerHeight );
    document.body.appendChild( renderer.domElement );
    window.addEventListener( 'resize', onWindowResize, false );
-
-   // Camera
-   camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
-
-   scene.add(camera);
     </pre>
   </article>
 
