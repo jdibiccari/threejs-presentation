@@ -56,7 +56,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <li>A lightweight Javascript library that allows you to do 3D in the browser
       </li>
       <li>Built on top of WebGL</li>
-      <li>Also has Canvas and SVG renderers</li>
+      <li>Interactive</li>
     </ul>
   </article>
 
@@ -81,45 +81,31 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   <article>
     <h3>Basic setup</h3>
     <ul>
-      <li>Renderers
+      <li>Scene
       </li>
-      <li>Cameras
+      <li>Renderer
+      </li>
+      <li>Camera
      </li>
-      <li>Lights
-      </li>
-      <li>Geometries
-      </li>
     </ul>
   </article>
 
-  <article>
-    <h3>Renderer</h3>
+<article>
     <pre>
-       renderer = new THREE.WebGLRenderer();
-       renderer.setSize( window.innerWidth, window.innerHeight );
-       document.body.appendChild( renderer.domElement );
-       window.addEventListener( 'resize', onWindowResize, false );</pre>
-  </article>
+   // Scene
+   var scene = new THREE.Scene(); 
 
-  <article>
-    <h3>Camera</h3>
-    <pre>
-    camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
-    // add the camera to the scene
-    scene.add(camera);
-    // set a default position for the camera
-    // not doing this somehow messes up shadow rendering
-    camera.position.z = 320;</pre>
-       <ul>
-      <li>The camera vertical field of view
-      </li>
-      <li>The camera aspect ratio.
-     </li>
-      <li> The camera near plane.
-      </li>
-      <li>The camera far plane.
-      </li>
-    </ul>
+   // Renderer
+   renderer = new THREE.WebGLRenderer();
+   renderer.setSize( window.innerWidth, window.innerHeight );
+   document.body.appendChild( renderer.domElement );
+   window.addEventListener( 'resize', onWindowResize, false );
+
+   // Camera
+   camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
+
+   scene.add(camera);
+    </pre>
   </article>
 
  <!--  <article>
@@ -149,7 +135,6 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
   <article class="title">
     <h2><b>Animation</b></h2>
-    <h2 class="subtitle">Animation</h2>
   </article>
 
   <article>
@@ -170,7 +155,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </article>
 
   <article>
-    <h3>Can you tell?</h3>
+    <h3>It's alive!</h3>
     <iframe src="three/three_3.html"></iframe>
   </article>
 
@@ -179,15 +164,21 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </article>
 
   <article>
-    <h3>type of lights</h3>
-    There are many types of light we would mention few
+    <h3>Type of lights</h3>
+    So many options...
        <ul>
-      <li>AmbientLight: This light's color gets applied to all the objects in the scene globally.
+      <li>AmbientLight
       </li>
       <li>DirectionalLight
      </li>
-      <li>SpotLight: A point light that can cast shadow in one direction.
+      <li>SpotLight
       </li>
+      <li>AreaLight
+     </li>
+     <li>HemisphereLight
+     </li>
+     <li>PointLight
+     </li>
     </ul>
   </article>
 
@@ -233,36 +224,16 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
 
   <article>
-    <h3>Much better than our first Cube</h3>
+    <h3>Tah dah! Shadows!</h3>
     <iframe src="three/three_5.html"></iframe>
   </article>
 
-
-  <article>
-    <h3>How to do text</h3>
-    <p>Create a canvas, draw text on it, use as texture.</p>
-    <pre>
-      var c = document.createElement('canvas');
-      c.getContext('2d').font = '50px Arial';
-      c.getContext('2d').fillText('Hello, world!', 2, 50);
-
-      var tex = new THREE.Texture(c);
-      tex.needsUpdate = true;
-      
-      var mat = new THREE.MeshBasicMaterial({map: tex});
-      mat.transparent = true;
-
-      var titleQuad = new THREE.Mesh(
-        new THREE.PlaneGeometry(c.width, c.height),
-        mat
-      );
-      titleQuad.doubleSided = true;</pre>
+  <article id="title" class="title">
+    <div>
+      <h3 class="subtitle"><img style="height:300px; padding-left:0px;" src="images/bird.jpg"></h3>
+    </div>
   </article>
 
-  <article>
-    <h3>Hello text</h3>
-    <iframe src="three/three_9.html"></iframe>
-  </article>
 
   <article class="title">
     <h2>Loading models</h2>
@@ -293,12 +264,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <iframe src="three/three_10.html"></iframe>
   </article>
 
- <article id="title" class="title">
-    <div>
-      <h3 class="subtitle"><img style="height:300px; padding-left:0px;" src="images/bird.jpg"></h3>
-    </div>
-  </article>
-
+ 
 
 </section>
 

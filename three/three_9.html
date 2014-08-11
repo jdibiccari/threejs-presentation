@@ -42,37 +42,37 @@
       var scene = new THREE.Scene();
 
        var c = document.createElement('canvas');
-      // var ctx = c.getContext('2d');
-      // ctx.font = '64px Arial';
-      // var s = 'Hello, world!';
-      // c.width = ctx.measureText(s).width;
-      // c.height = Math.ceil(64*1.25);
-      // ctx.font = '64px Arial';
-      // ctx.fillText(s, 0, 64);
+      var ctx = c.getContext('2d');
+      ctx.font = '64px Arial';
+      var s = 'Hello, world!';
+      c.width = ctx.measureText(s).width;
+      c.height = Math.ceil(64*1.25);
+      ctx.font = '64px Arial';
+      ctx.fillText(s, 0, 64);
       
-      // var tex = new THREE.Texture(c);
-      // tex.needsUpdate = true;
+      var tex = new THREE.Texture(c);
+      tex.needsUpdate = true;
       
-      var mesh    = new THREEx.Text('THREEx', {
-    font        : "droid serif",
-    weight      : "bold",
-    size        : 1,
-    height      : 0.4,
-    })
-    scene.add(mesh)
+    //   var mesh    = new THREEx.Text('THREEx', {
+    // font        : "droid serif",
+    // weight      : "bold",
+    // size        : 1,
+    // height      : 0.4,
+    // })
+    // scene.add(mesh)
 
-      // var mat = new THREE.MeshBasicMaterial({map: tex});
-      // mat.transparent = true;
+      var mat = new THREE.MeshBasicMaterial({map: tex});
+      mat.transparent = true;
 
-      // var titleQuad = new THREE.Mesh(
-      //   new THREE.PlaneGeometry(c.width, c.height),
-      //   mat
-      // );
-      // titleQuad.doubleSided = true;
+      var titleQuad = new THREE.Mesh(
+        new THREE.PlaneGeometry(c.width, c.height),
+        mat
+      );
+      titleQuad.doubleSided = true;
 
-      // scene.add(titleQuad);
+      scene.add(titleQuad);
 
-      // titleQuad.rotation.y = 0.5;
+      titleQuad.rotation.y = 0.5;
 
       renderer.render(scene, camera);
       var paused = false;

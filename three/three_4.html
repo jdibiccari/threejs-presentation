@@ -38,11 +38,11 @@
       var camera = new THREE.PerspectiveCamera( fov, aspect, near, far );
       camera.position.z = 300;
       var scene = new THREE.Scene();
-      var cube = new THREE.Mesh(
-        new THREE.CubeGeometry(75,75,75),
-        new THREE.MeshBasicMaterial({color: 0x0000ff, opacity: 1})
-      );
-      scene.add(cube);
+      // var cube = new THREE.Mesh(
+      //   new THREE.CubeGeometry(75,75,75),
+      //   new THREE.MeshBasicMaterial({color: 0x0000ff, opacity: 1})
+      // );
+      // scene.add(cube);
 
       var light = new THREE.SpotLight();
       light.position.set( 170, 330, -160 );
@@ -50,9 +50,9 @@
       var litCube = new THREE.Mesh(
         new THREE.CubeGeometry(75, 75, 75),
         new THREE.MeshLambertMaterial({color: 0x0000ff}));
-      litCube.position.y = 100;
+      litCube.position.y = 0;
       scene.add(litCube);
-
+      // camera.lookAt(litCube.position);
 
       renderer.render(scene, camera);
       var paused = false;
