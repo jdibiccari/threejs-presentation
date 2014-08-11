@@ -62,12 +62,13 @@
       scene.add(plane);
 
       var light = new THREE.SpotLight();
+      light.color.setHex( 0xffffff );
       light.castShadow = true;
       light.position.set( 170, 330, -160 );
       scene.add(light);
       var litCube = new THREE.Mesh(
-        new THREE.CubeGeometry(50, 50, 50),
-        new THREE.MeshLambertMaterial({color: 0x0000ff}));
+      new THREE.CubeGeometry(50, 50, 50),
+      new THREE.MeshLambertMaterial({color: 0x0000ff}));
       litCube.position.y = 50;
       litCube.castShadow = true;
       scene.add(litCube);

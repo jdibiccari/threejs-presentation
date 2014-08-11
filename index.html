@@ -99,22 +99,12 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
        renderer.setSize( window.innerWidth, window.innerHeight );
        document.body.appendChild( renderer.domElement );
        window.addEventListener( 'resize', onWindowResize, false );</pre>
-       <ul>
-      <li>The camera frustum vertical field of view
-      </li>
-      <li>The camera frustum aspect ratio.
-     </li>
-      <li> The camera frustum near plane.
-      </li>
-      <li>The camera frustum far plane.
-      </li>
-    </ul>
   </article>
 
   <article>
     <h3>Camera</h3>
     <pre>
-    camera = new THREE.PerspectiveCamera(VIEW_ANGLE,ASPECT,NEAR,FAR);
+    camera = new THREE.PerspectiveCamera(45, width/height, 1, 10000);
     // add the camera to the scene
     scene.add(camera);
     // set a default position for the camera
@@ -132,15 +122,15 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     </ul>
   </article>
 
-  <article>
+ <!--  <article>
     <h3>Our scene!</h3>
     <iframe src="three/three_1.html"></iframe>
-  </article>
+  </article> -->
 
   <article>
-    <h3>It gets better!</h3>
+    <h3>and now we can add objects to the scene</h3>
     <div>
-    <p>Let's add a Cube to the Scene</p>
+    <p>Let's add a Cube </p>
     <pre>
       var scene = new THREE.Scene();
       var cube = new THREE.Mesh(new THREE.CubeGeometry(50,50,50),
@@ -159,6 +149,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
 
   <article class="title">
     <h2><b>Animation</b></h2>
+    <h2 class="subtitle">Animation</h2>
   </article>
 
   <article>
@@ -184,7 +175,20 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
   </article>
 
   <article class="title">
-    <h2><b>Lighting</b></h2>
+    <h2><b>Light it</b></h2>
+  </article>
+
+  <article>
+    <h3>type of lights</h3>
+    There are many types of light we would mention few
+       <ul>
+      <li>AmbientLight: This light's color gets applied to all the objects in the scene globally.
+      </li>
+      <li>DirectionalLight
+     </li>
+      <li>SpotLight: A point light that can cast shadow in one direction.
+      </li>
+    </ul>
   </article>
 
   <article>
@@ -215,13 +219,16 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <pre>
       // enable shadows 
       renderer.shadowMapEnabled = true;
+      
+      // set the light color
+      light.color.setHex( 0xffffff );
 
       // enable shadows for a light
       light.castShadow = true;
 
       // enable shadows for an object
-      litCube.castShadow = true;
-      litCube.receiveShadow = true;</pre>
+      cube.castShadow = true;
+      cube.receiveShadow = true;</pre>
   </article>
 
 
@@ -266,9 +273,7 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <p>Look into utils/exporters/</p>
     <ul>
       <li>blender/</li>
-      <li>fbx/</li>
-      <li>max/</li>
-      <li>utf8/</li>
+      <li>max/maya</li>
       <li>convert_obj_three.py</li>
     </ul>
   </article>
@@ -279,16 +284,21 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
       <li>BinaryLoader.js</li>
       <li>ColladaLoader.js</li>
       <li>JSONLoader.js</li>
-      <li>SceneLoader.js</li>
-      <li>UTF8Loader.js</li>
     </ul>
     <p>Huh? So what should I use?</p>
   </article>
 
   <article>
-    <h3>Monster</h3>
+    <h3>example</h3>
     <iframe src="three/three_10.html"></iframe>
   </article>
+
+ <article id="title" class="title">
+    <div>
+      <h3 class="subtitle"><img style="height:300px; padding-left:0px;" src="images/bird.jpg"></h3>
+    </div>
+  </article>
+
 
 </section>
 
