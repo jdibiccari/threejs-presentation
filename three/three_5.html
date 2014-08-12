@@ -45,14 +45,7 @@
       camera.position.x = 200;
       camera.position.y = 350;
       var scene = new THREE.Scene();
-      var cube = new THREE.Mesh(
-        new THREE.CubeGeometry(50,50,50),
-        new THREE.MeshLambertMaterial({color: 0xff0000})
-      );
-      scene.add(cube);
-      cube.castShadow = true;
-      cube.receiveShadow = true;
-
+    
       var plane = new THREE.Mesh(
         new THREE.PlaneGeometry(400, 200, 10, 10), 
         new THREE.MeshLambertMaterial({color: 0xffffff}));

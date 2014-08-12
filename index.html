@@ -210,16 +210,19 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <pre>
       // enable shadows 
       renderer.shadowMapEnabled = true;
-      
-      // set the light color
-      light.color.setHex( 0xffffff );
-
       // enable shadows for a light
       light.castShadow = true;
-
       // enable shadows for an object
       cube.castShadow = true;
-      cube.receiveShadow = true;</pre>
+
+      var plane = new THREE.Mesh(
+        new THREE.PlaneGeometry(400, 200, 10, 10), 
+        new THREE.MeshLambertMaterial({color: 0xffffff}));
+      plane.rotation.x = -Math.PI/2;
+      plane.position.y = -25.1;
+      plane.receiveShadow = true;
+      scene.add(plane);
+      </pre>
   </article>
 
 
@@ -228,40 +231,72 @@ Author: Eric Bidelman (ericbidelman@chromium.org)
     <iframe src="three/three_5.html"></iframe>
   </article>
 
-  <article id="title" class="title">
-    <div>
-      <h3 class="subtitle"><img style="height:300px; padding-left:0px;" src="images/bird.jpg"></h3>
-    </div>
-  </article>
-
-
   <article class="title">
-    <h2>Loading models</h2>
+    <h2>Demos</h2>
   </article>
 
   <article>
-    <h3>Model exporters</h3>
-    <p>Look into utils/exporters/</p>
-    <ul>
-      <li>blender/</li>
-      <li>max/maya</li>
-      <li>convert_obj_three.py</li>
-    </ul>
+  <h3>As Mars turns...</h3>
+  <p>Image loading</p>
+  <pre>
+  var marsTexture=THREE.ImageUtils.loadTexture('textures/mars_texture.jpg');
+  var sphereMaterial=new THREE.MeshLambertMaterial({map: marsTexture});
+  sphere=new THREE.Mesh(sphereGeometry, sphereMaterial);
+  </pre>
   </article>
+
   <article>
-    <h3>Model loaders</h3>
-    <p>Look into src/extras/loaders/</p>
+    <p>Dat.gui example</p>
+    <pre>
+    gui = new dat.GUI();
+    parameters = {
+      rotX: 0, rotY: 0, rotZ: 0
+    };
+    var sphereX=gui.add(parameters,'rotX').min(0).max(1).step(0.001);
+    var sphereY=gui.add(parameters,'rotY').min(0).max(1).step(0.001);
+    var sphereZ=gui.add(parameters,'rotZ').min(0).max(1).step(0.001);
+
+    sphereX.onChange(function(value){
+      sphere.rotation.x = value;
+    });
+    sphereY.onChange(function(value){
+      sphere.rotation.y = value;
+    });
+    sphereZ.onChange(function(value){
+      sphere.rotation.z = value;
+    });
+  </pre>
+  </article>
+
+
+  <article>
+    <h3>Loading models</h3>
+    <p>Loaders</p>
     <ul>
-      <li>BinaryLoader.js</li>
+      <li>OBJLoader.js</li>
       <li>ColladaLoader.js</li>
       <li>JSONLoader.js</li>
     </ul>
-    <p>Huh? So what should I use?</p>
   </article>
 
   <article>
-    <h3>example</h3>
-    <iframe src="three/three_10.html"></iframe>
+    <h3>Resources</h3>
+    <ul>
+      <li>http://threejs.org/</li>
+      <li>http://stemkoski.github.io/Three.js/index.html</li>
+      <li>http://www.smartjava.org/content/all-109-examples-my-book-threejs-threejs-version-r63</li>
+      <li>http://creativejs.com/tutorials/three-js-part-1-make-a-star-field/</li>
+    </ul>
+  </article>
+
+  <article class="title">
+    <h2>Thank you!</h2>
+  </article>
+
+   <article>
+    <h3>Contact us:</h3>
+    <p>janel.dibiccari@flatironschool.com</p>
+    <p>sammy.khaleel@flatironschool.com</p>
   </article>
 
  
